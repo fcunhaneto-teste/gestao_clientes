@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Administracao {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h3>{{ object }}</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Age: {{ object.age }}</li>
+                <li class="list-group-item">Salary: {{ object.salary }}</li>
+                <li class="list-group-item">Bio: {{ object.bio }}</li>
+            </ul>
+
+            <br>
+            {{ now }}
+            <br>
+
+            <a href="{% url 'person_new' %}" class="btn btn-primary"> Novo cliente</a>
+
+
+        </div>
+
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Ola {{user.username }}
+                    <a href="{% url 'logout' %}">
+                        <span class="badge badge-dark">Sair</span>
+                    </a>
+                </p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+      </div>
+    </footer>
+{% endblock %}

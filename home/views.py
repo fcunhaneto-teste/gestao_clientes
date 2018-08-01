@@ -26,4 +26,9 @@ class HomePageView(TemplateView):
 
 class MyView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello, World!')
+        return HttpResponse('Hello, World GET!')
+
+    def post(self, request, *args, **kwargs):
+        return HttpResponse('Hello, World POST!')
+
+
