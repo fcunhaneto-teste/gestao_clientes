@@ -20,6 +20,8 @@
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </li>
+                {% empty %}
+                    <li class="list-group-item" >Não existem clientes cadastrados</li>
 
                 {% endfor %}
             </ul>
@@ -46,9 +48,5 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
-      </div>
-    </footer>
+    {% include 'clientes/footer.html' %}
 {% endblock %}

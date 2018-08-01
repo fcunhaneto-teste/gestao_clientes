@@ -11,4 +11,5 @@ urlpatterns = [
     path('person_detail/<int:pk>/', views.PersonDetail.as_view(), name="persons_detail_cbv"),
     path('person_new/', views.PersonCreate.as_view(), name="persons_new_cbv"),
     path('person_update/<int:pk>/', views.PersonUpdate.as_view(), name="persons_update_cbv"),
+    path('person_delete/<int:pk>/', views.PersonDelete.as_view(), name="persons_delete_cbv"),
 ]

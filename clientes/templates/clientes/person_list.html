@@ -12,27 +12,29 @@
 
         <div class="col-6">
             <h3>Listagem de clientes</h3>
+            <h3>CBV</h3>
             <ul class="list-group">
                 {% for person in object_list %}
                     <li class="list-group-item">
-                        <a href="{% url 'persons_update' person.id %}">{{ person.first_name }}</a>
-                        <a href="{% url 'persons_delete' person.id %}" class="trash-item">
+                        <a href="{% url 'persons_update_cbv' person.id %}">{{ person.first_name }}</a>
+                        <a href="{% url 'persons_delete_cbv' person.id %}" class="trash-item">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </li>
-
+                {% empty %}
+                    <li class="list-group-item" >Não existem clientes cadastrados</li>
                 {% endfor %}
             </ul>
 
             <br>
 
-            <a href="{% url 'person_new' %}" class="btn btn-primary"> Novo cliente</a>
+            <a href="{% url 'persons_new_cbv' %}" class="btn btn-primary"> Novo cliente</a>
 
         </div>
 
         <div class="col">
             {% if user.is_authenticated %}
-                <p>Ola {{user.username }}
+                <p>Ola {{ user.username }}
                     <a href="{% url 'logout' %}">
                         <span class="badge badge-dark">Sair</span>
                     </a>
@@ -46,9 +48,5 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
-      </div>
-    </footer>
+    {% include 'clientes/footer.html' %}
 {% endblock %}
